@@ -7,7 +7,6 @@ int linearSeach(int arr1[], int n1, int key1)
         if (arr1[i] == key1)
         {
             return i;
-            1;
         }
     }
     return -1;
