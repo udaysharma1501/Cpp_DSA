@@ -14,7 +14,7 @@ void printList(node *head1) // start of list is passed to commence the printing
     while (head1 != NULL) // comments written for first iteration and later for second iteration
     {
         cout << (head1->data) << " "; // data stored in first node is printed
-        head1 = head1->next;          // head1 being a pointer already is assigned the next pointer of the first node, hence pointing to the address of second node's data, thus serving as an updation for the head pointer to shift from pointing towards first node's data's address to pointing towards second node's data's address
+        head1 = head1->next;          // head1 points to data of first node, then second and then third
     }
     cout<<endl;
 }
@@ -23,7 +23,7 @@ int main()
 {
 
     node n1, n2, n3;
-    node *head; // head is a pointer variable which is made to point to the concerned address being stored in each node, it serves as a counter being used to point to the node we desire.
+    node *head; // head is a pointer variable which is made to point to the address being stored in the concerned node, it serves as a counter being used to point to the node we desire.
 
     n1.data = 45; // data being stored in data part of each node
     n2.data = 8;
@@ -40,6 +40,7 @@ int main()
 
     printList(head);
 
+    //inserting between n1 and n2
     node n_between1and2;
     n_between1and2.data = 13;
 

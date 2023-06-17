@@ -5,6 +5,7 @@
         "functional": "cpp",
         "istream": "cpp",
         "new": "cpp",
-        "ostream": "cpp"
+        "ostream": "cpp",
+        "bitset": "cpp"
     }
 }

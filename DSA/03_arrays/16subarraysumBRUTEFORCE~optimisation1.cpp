@@ -45,7 +45,7 @@ int main()
 //             {
 //                 subarraysum = subarraysum + arr1[counter];
 //             }
-//             //put a check is subarrysum > largest_sum
+//             //put a check 'is subarrysum > largest_sum?'
 //             largest_sum_till_now = max(largest_sum_till_now, subarraysum);
 //         }
 //         cout << endl;

@@ -1,0 +1,12 @@
+1) open git bash in the concerned folder
+2) use
+	git status
+	git branch
+	ls 
+to check if everything is alright
+3) use
+	git commit -a -m "message to be typed"
+to commit the changes
+4) use
+	git push
+to push to the repo
