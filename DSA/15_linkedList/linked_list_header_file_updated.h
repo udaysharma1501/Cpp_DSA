@@ -1,8 +1,9 @@
-#include <iostream>
+#include <iostream> //to avail NULL pointer
+using namespace std;
 class list; // forward declaration
 class node
 {
-    friend class list; // so that class list can access next directly
+    friend class list; // so that class list can access 'next' directly
     int data;          // part of node which holds data
 
 public:
@@ -18,8 +19,15 @@ public:
     {
         return data;
     }
+    //--------------------------delete------starts here----------
+    ~node()
+    {
+        if(next!=NULL)
+        {
+            delete next;
+        }
+    }
 };
-
 class list
 {
     node *head;
@@ -77,18 +85,67 @@ public:
             push_front(data_to_be_inserted); // pushing data directly to head
             return;
         }
-        // otherwise we break the chain between the temp_th node and (temp+1)th node and add a new node in between
-        
-        //establishing connection between new node and (n+1)th node
-        node* temp = head;
+        /*
+        example:
+        current: 0 -> 1 -> 3 -> 4
+        required: 0 -> 1-> 2 -> 3 -> 4              insertion of 2 at position 2
 
-        for(int jump =1; jump<=(position-1); jump++)
+        1. store head in temp variable (to avoid unecessary updation)
+        2. bring head pointer to 1      => by making it jump 2-1 times       ==> jumps = position-1
+        3. establish right link:        inserted_node->next = temp->next    (because prior to insertion, temp (head) used to point to the next node, where the inserted node must point now)
+        4. establish left link:         temp->next = inserted_node
+        */
+        node *temp = head;
+        for (int jump = 1; jump <= (position - 1); jump++) // BEWARE OF '<='
         {
+            temp = temp->next; // to iterate and make head traverse uptil the (position - 1) position
+        }
+        node *inserted_node = new node(data_to_be_inserted);
+        // right link
+        inserted_node->next = temp->next;
+        // left link
+        temp->next = inserted_node;
+    }
+    //--------------------------search------starts here----------
+    int search(int key, node *head)
+    // void search(int key)
+    {
+        node *temp = head;
+        int counter = 0; // to return exact position of key
+        while (head != NULL)
+        {
+            if (temp->data == key)
+            {
+                return counter + 1;
+            }
+            counter++;
             temp = temp->next;
         }
-
-        node* node_to_be_inserted = new node(data_to_be_inserted);
-        node_to_be_inserted->next = temp->next;
-        temp->next = node_to_be_inserted;
+        return -1;
     }
+    bool check(int key, node *head) // to check if element is present or not
+    {
+        node *temp = head;
+        while (temp != NULL)
+        {
+            if (temp->getData() == key)
+            {
+                return true;
+            }
+            temp = temp->next;
+        }
+        return false;
+    }
+    // int recursive_search(int key)
+    // {
+    //     /*
+    //     1. check for key at head
+    //         1.1. if its present we return (index+1)
+    //         1.2. if its not present
+    //             1.2.1. updated head to next node
+    //             1.2.2. make the same call on the remaining nodes
+    //     */
+
+    // }
+    //--------------------------delete------starts here----------
 };

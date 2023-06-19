@@ -7,5 +7,9 @@
         "new": "cpp",
         "ostream": "cpp",
         "bitset": "cpp"
-    }
+    },
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.python"
+    },
+    "python.formatting.provider": "none"
 }
