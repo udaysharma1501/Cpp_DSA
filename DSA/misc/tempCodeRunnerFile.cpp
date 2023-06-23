@@ -1,8 +1,2 @@
-ss list
-// {
-//     node* head;
-//     node* tail;
-
-//     public:
-//         void addNewNode()
-// };
+cout<<a%10<<endl;
+    a = a/10;
