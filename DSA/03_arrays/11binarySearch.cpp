@@ -1,26 +1,30 @@
 // search space must be pre sorted ==>> values must be monotonic (non-dec or non-inc)
 #include <iostream>
 using namespace std;
-
-int binSearch(int arr1[], int n1, int key1)
+/*
+arr - stores searching space
+size - size of arr
+key - number we're looking for
+*/
+int binSearch(int arr[], int size, int key)
 {
     int start = 0;
-    int end = n1 - 1;
+    int end = size - 1;
 
     while (start <= end)
     {
         int mid = (start + end) / 2;
 
-        if (arr1[mid] == key1)
+        if (arr[mid] == key)
         {
             return mid;
         }
-        else if (arr1[mid] > key1)
+        else if (arr[mid] > key) //key lies between (start and mid) hence the search space must be updated within (start) and (mid-1)
         {
             end = mid - 1;
         }
-        else if (arr1[mid] < key1)
-        {
+        else if (arr[mid] < key) //key lies between (mid and end) hence the seach space must be updated within (mid+1) and (end)
+        {                        //this only works (and similarly the above condition) if search space is sorted monotonously
             start = mid + 1;
         }
     }
@@ -40,6 +44,8 @@ int main()
     cin >> key;
 
     int index = binSearch(arr, n, key);
+
+    cout<<"***note: array consists of natual numbers uptil 100 (inclusive)***"<<endl;
 
     if (index != -1)
     {
