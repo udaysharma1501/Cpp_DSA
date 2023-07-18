@@ -119,7 +119,8 @@ node *buildTree()
 }
 void print_levelOrder(node *root)
 {
-    queue<node *> q1; // what is being pushed inside the queue must either point to the node we're referring to OR should be a copy of the node
+    // what is being pushed inside the queue must either point to the node we're referring to OR should be a copy of the node
+    queue<node *> q1; 
 
     q1.push(root);
     q1.push(NULL);

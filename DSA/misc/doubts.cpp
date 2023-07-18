@@ -35,3 +35,33 @@ string name = "uday";
 
 
 */
+// string first_name;
+    // cin>>first_name;
+    // first_name.append(" sharma");
+    // cout<<first_name<<endl;
+
+    // string s;
+    // s.assign("set");
+    // cout<<s<<endl;
+
+    // string s = "uday";
+    // cout<<s.at(0);
+
+    // string s = "uday";
+    // cout<<s.back()<<endl;
+
+    //?????????????????????????????????????????
+    // string s;
+    // s.begin();
+
+    // string s = "uday";
+    // s.pop_back();
+    // cout<<s<<endl;
+
+    // string s = "uday";
+    // s.push_back('x');
+    // cout<<s<<endl;
+
+    string s = "uday";
+    cout<<s.c_str();
+    // cout<<s;
